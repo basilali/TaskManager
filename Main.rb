@@ -48,7 +48,9 @@ while true do
 
   when "3"
 
-    if !tasks.length == 0
+    if tasks.length == 0
+      puts "No tasks to be saved!"
+    else
       data = []
       tasks.each do |task|
         data << task.to_array
@@ -56,13 +58,11 @@ while true do
 
       File.open("tasks.txt", "w") do |f|
         tasks.each do |task|
-        f.puts task.to_array.join(",")
+          f.puts task.to_array.join(",")
         end
       end
 
       puts "Tasks saved!"
-    else
-      puts "No tasks to be saved!"
     end
 
   when "4"
